@@ -1,7 +1,7 @@
 from math import *
 from sympy import *
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(1000)
 
 x, y = symbols('x y')
 
@@ -13,7 +13,7 @@ lambd = 1
 '''Se aplcia p/u fractionarea pasului '''
 omega = 1/2
 ''' Eroarea admisibila '''
-eps = 10**(-8)
+eps = 10**(-6)
 delt = 0.06
 ''' Coordonatele de unde se incepe rezolvarea '''
 x0 = [2,6]
