@@ -1,4 +1,7 @@
 import time
+from random import *
+import sys
+sys.setrecursionlimit(10**6)
 
 def pause():
     programPause = input("\nPress the <ENTER> key to continue...\n")
@@ -78,6 +81,30 @@ def printList(n):
 def main():
 	global iteratii1,iteratii2,iteratii3
 	g = 1
+	print("Marimea masivului")
+	print("1. 30")
+	print("2. 1000")
+	print("3. 3400")
+	op = input("Optiunea: ")
+	op = int(op)
+	n = list()
+	array = list()
+	n_sortat = list()
+	n_invers = list()
+	if op == 1:
+		for i in range(30):
+			n.append(randint(0,30))
+	if op == 2:
+		for i in range(1000):
+			n.append(randint(0,1000))
+	if op == 3:
+		for i in range(3400):
+			n.append(randint(0,3400))
+	n_sortat = n.copy()
+	n_invers = n.copy()
+	n_sortat.sort()
+	n_invers.sort(reverse = True)
+
 	while(g == 1):
 		print("\n1. Cazul cel mai bun.")
 		print("2. Cazul mediu")
@@ -87,83 +114,92 @@ def main():
 		t = int(t)
 		if t == 1:
 			iteratii1=iteratii2=iteratii3=0
-			n = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+			array = n_sortat.copy()
 			counter1 = time.perf_counter()
-			sort1 = merge_sort(n)
+			sort1 = merge_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- MergeSort:")
-			printList(sort1)
+			if op != 3:
+				printList(sort1)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii1))
-			n = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+			array = n_sortat.copy()
 			counter1 = time.perf_counter()
-			sort2 = quick_sort(n)
+			sort2 = quick_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- QuickSort:")
-			printList(sort2)
+			if op != 3:
+				printList(sort2)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii2))
-			n = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+			array = n_sortat.copy()
 			counter1 = time.perf_counter()
-			sort3 = bubble_sort(n)
+			sort3 = bubble_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- BubbleSort:")
-			printList(sort3)
+			if op != 3:
+				printList(sort3)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii3))
 			pause()
 		elif t == 2:
 			iteratii1=iteratii2=iteratii3=0
-			n = [8,6,7,1,3,4,5,0,2,10,9,18,16,17,11,13,14,15,12,20,19]
+			array = n.copy()
 			counter1 = time.perf_counter()
-			sort1 = merge_sort(n)
+			sort1 = merge_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- MergeSort:")
-			printList(sort1)
+			if op != 3:
+				printList(sort1)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii1))
-			n = [8,6,7,1,3,4,5,0,2,10,9,18,16,17,11,13,14,15,12,20,19]
+			array = n.copy()
 			counter1 = time.perf_counter()
-			sort2 = quick_sort(n)
+			sort2 = quick_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- QuickSort:")
-			printList(sort2)
+			if op != 3:
+				printList(sort2)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii2))
-			n = [8,6,7,1,3,4,5,0,2,10,9,18,16,17,11,13,14,15,12,20,19]
+			array = n.copy()
 			counter1 = time.perf_counter()
-			sort3 = bubble_sort(n)
+			sort3 = bubble_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- BubbleSort:")
-			printList(sort3)
+			if op != 3:
+				printList(sort3)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii3))
 			pause()
 		elif t == 3:
 			iteratii1=iteratii2=iteratii3=0
-			n = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0]
+			array = n_invers.copy()
 			counter1 = time.perf_counter()
-			sort1 = merge_sort(n)
+			sort1 = merge_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- MergeSort:")
-			printList(sort1)
+			if op != 3:
+				printList(sort1)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii1))
-			n = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0]
+			array = n_invers.copy()
 			counter1 = time.perf_counter()
-			sort2 = quick_sort(n)
+			sort2 = quick_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- QuickSort:")
-			printList(sort2)
+			if op != 3:
+				printList(sort2)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii2))
-			n = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0]
+			array = n_invers.copy()
 			counter1 = time.perf_counter()
-			sort3 = bubble_sort(n)
+			sort3 = bubble_sort(array)
 			counter2 = time.perf_counter()
 			counter = counter2 - counter1
 			print("\n---------- BubbleSort:")
-			printList(sort3)
+			if op != 3:
+				printList(sort3)
 			print("Timp: {:.8f} secunde, Iteratii: {}".format(counter,iteratii3))
 			pause()
 		elif t == 4:
