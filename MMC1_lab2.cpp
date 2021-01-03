@@ -204,7 +204,7 @@ cout << "\nIteratii = " << iteratii3 << endl;
 cout << endl;
 system("pause");
 
-double e3,e5;
+double e3 = pow(10,-3) ,e5 = pow(10,-5);
 cout << "\nSolutia aproximativa prin Metoda iterativa a lui Gauss-Seidel cu o eroare 10^-3 este:" << endl;
 double *sol3 = Gauss_Seidel(4,A,b,e3,iteratii4);
 for (int i = 0; i < n; i++)

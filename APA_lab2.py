@@ -83,7 +83,7 @@ def main():
 	g = 1
 	print("Marimea masivului")
 	print("1. 30")
-	print("2. 1000")
+	print("2. 300")
 	print("3. 3400")
 	op = input("Optiunea: ")
 	op = int(op)
@@ -95,8 +95,8 @@ def main():
 		for i in range(30):
 			n.append(randint(0,30))
 	if op == 2:
-		for i in range(1000):
-			n.append(randint(0,1000))
+		for i in range(300):
+			n.append(randint(0,300))
 	if op == 3:
 		for i in range(3400):
 			n.append(randint(0,3400))
